@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JPG 轉 PDF</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>多張 JPG 轉 PDF</h1>
+    <p class="hint">本地處理，圖片不會上傳到伺服器。</p>
+
+    <section class="card">
+      <label class="btn">
+        選擇／加入圖片（可多選）
+        <input id="fileInput" type="file" accept="image/jpeg,image/jpg,image/png" multiple hidden />
+      </label>
+
+      <div class="row">
+        <label class="field">
+          頁面大小
+          <select id="pageSize">
+            <option value="a4" selected>A4</option>
+            <option value="letter">Letter</option>
+            <option value="fit">依圖片自動裁切（Fit）</option>
+          </select>
+        </label>
+
+        <label class="field">
+          方向
+          <select id="orientation">
+            <option value="portrait" selected>直向</option>
+            <option value="landscape">橫向</option>
+            <option value="auto">自動（依圖片）</option>
+          </select>
+        </label>
+
+        <label class="field">
+          邊距（mm）
+          <input id="marginMm" type="number" min="0" max="30" value="0" />
+        </label>
+      </div>
+
+      <div class="row">
+        <label class="field">
+          壓縮品質（0.1 ~ 1）
+          <input id="quality" type="number" min="0.1" max="1" step="0.05" value="1" />
+        </label>
+
+        <label class="field">
+          PDF 檔名
+          <input id="pdfName" type="text" value="images.pdf" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="makePdf" class="primary" disabled>產生 PDF</button>
+        <button id="clear" disabled>清除</button>
+      </div>
+
+      <div id="status" class="status"></div>
+    </section>
+
+    <section class="card">
+      <h2>預覽與排序（拖曳調整順序）</h2>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <footer class="footer">
+      <small>Made for GitHub Pages • Offline-friendly</small>
+    </footer>
+  </main>
+
+  <!-- jsPDF via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <!-- SortableJS (desktop + mobile) -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.3/Sortable.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
