@@ -108,3 +108,31 @@ button:disabled { opacity: .5; cursor: not-allowed; }
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.tool-nav{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 8px 0 14px;
+}
+
+.tool-link{
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.tool-link:hover{
+  border-color: #cbd5e1;
+}
+
+.tool-link.current{
+  border-color: #2563eb;
+  background: #eff6ff;
+}
